@@ -16,3 +16,9 @@ Repo for learning Spring projects.
 
 1. Using the `@Component` annotation, mark the classes for which you want Spring to add an instance to its context.
 2. Using `@ComponentScan` annotation over the configuration class, instruct Spring on where to find classes - [ProjectConfig](c02e07stereotype/src/main/java/learn/sprng/sthr/c02e07stereotype/ProjectConfig.java).
+
+### Programmatically adding beans to the Spring context
+* Project: [c02e08register](c02e08register)
+
+1. Create the instance you want to add to the Spring context.
+2. Call the `context.registerBean()` method to add the instance to the Spring context - [Main](c02e08register/src/main/java/learn/sprng/sthr/c02e08register/Main.java)
