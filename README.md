@@ -22,3 +22,9 @@ Repo for learning Spring projects.
 
 1. Create the instance you want to add to the Spring context.
 2. Call the `context.registerBean()` method to add the instance to the Spring context - [Main](c02e08register/src/main/java/learn/sprng/sthr/c02e08register/Main.java)
+
+## 3 - The Spring context: Wiring beans
+* Project: [c03e01wiring](c03e01wiring)
+
+### Wiring the beans using a direct method call between the @Bean methods
+[ProjectConfig.java](c03e01wiring/src/main/java/learn/sprng/sthr/c03e01wiring/ProjectConfig.java)
