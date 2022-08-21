@@ -19,13 +19,24 @@ class AppTest {
 
     @Test
     @DisplayName("Test that the Person instance in the Spring context owns the Parrot instance from the Spring context")
-    void testThatPersonHasInjectedParrot() {
-        Person person = context.getBean(Person.class);
+    void testThatPersonHasParrot() {
+        Person person = context.getBean("person1", Person.class);
         assertNotNull(person);
         Parrot parrot = person.getParrot();
         assertNotNull(parrot);
         assertEquals("Sparrow", parrot.getName());
         Parrot bean = context.getBean(Parrot.class);
         assertSame(bean, parrot);
+    }
+
+    @Test
+    @DisplayName("Test that two Person instances own the same Parrot instance from the Spring context")
+    void testThatTwoPersonsHaveTheSameInjectedParrot() {
+        Person person1 = context.getBean("person1", Person.class);
+        assertNotNull(person1);
+        Person person2 = context.getBean("person2", Person.class);
+        assertNotNull(person2);
+
+        assertSame(person1.getParrot(), person2.getParrot());
     }
 }

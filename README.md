@@ -27,4 +27,11 @@ Repo for learning Spring projects.
 * Project: [c03e01wiring](c03e01wiring)
 
 ### Wiring the beans using a direct method call between the @Bean methods
-[ProjectConfig.java](c03e01wiring/src/main/java/learn/sprng/sthr/c03e01wiring/ProjectConfig.java)
+* `person.setParrot(parrot());`
+* [ProjectConfig.java](c03e01wiring/src/main/java/learn/sprng/sthr/c03e01wiring/ProjectConfig.java)
+
+### Wiring the beans using the @Bean annotated method's parameters
+Add a parameter to the method of the corresponding type of object, and rely on Spring
+to provide a value through that parameter.
+* `public Person person(Parrot parrot) {}`
+* [ProjectConfig.java](c03e01wiring/src/main/java/learn/sprng/sthr/c03e01wiring/ProjectConfig.java)

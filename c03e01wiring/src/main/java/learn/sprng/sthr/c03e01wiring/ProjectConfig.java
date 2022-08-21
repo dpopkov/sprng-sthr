@@ -13,11 +13,19 @@ public class ProjectConfig {
         return p;
     }
 
-    @Bean
+    @Bean("person1")
     public Person person() {
         Person p = new Person();
         p.setName("James");
         p.setParrot(parrot());
+        return p;
+    }
+
+    @Bean("person2")
+    public Person person(Parrot parrot) {
+        Person p = new Person();
+        p.setName("Linus");
+        p.setParrot(parrot);
         return p;
     }
 }
