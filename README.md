@@ -35,3 +35,7 @@ Add a parameter to the method of the corresponding type of object, and rely on S
 to provide a value through that parameter.
 * `public Person person(Parrot parrot) {}`
 * [ProjectConfig.java](c03e01wiring/src/main/java/learn/sprng/sthr/c03e01wiring/ProjectConfig.java)
+
+## Using @Autowired to inject beans through constructor
+* Define a constructor for the class and annotate it with `@Autowired` if you have more than one
+* Project: [c03e02constructor](c03e02constructor)
