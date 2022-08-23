@@ -36,6 +36,10 @@ to provide a value through that parameter.
 * `public Person person(Parrot parrot) {}`
 * [ProjectConfig.java](c03e01wiring/src/main/java/learn/sprng/sthr/c03e01wiring/ProjectConfig.java)
 
-## Using @Autowired to inject beans through constructor
+### Using @Autowired to inject beans through constructor
 * Define a constructor for the class and annotate it with `@Autowired` if you have more than one
 * Project: [c03e02constructor](c03e02constructor)
+
+### Choosing from multiple beans in the Spring context
+* Project: [c03e10qualifier](c03e10qualifier)
+* Explicitly select a specific bean using the `@Qualifier` annotation: [Person.java](c03e10qualifier/src/main/java/learn/sprng/sthr/c03e10qualifier/Person.java)
