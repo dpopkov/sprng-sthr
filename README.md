@@ -48,3 +48,6 @@ to provide a value through that parameter.
 
 ### Using interfaces to define contracts
 * Project: [c04e01nospring](c04e01nospring)
+
+### Using dependency injection with abstractions
+* Project: [c04e02spring](c04e02spring)
