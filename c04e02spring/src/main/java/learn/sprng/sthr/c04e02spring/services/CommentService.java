@@ -2,9 +2,9 @@ package learn.sprng.sthr.c04e02spring.services;
 
 import learn.sprng.sthr.c04e02spring.model.Comment;
 import learn.sprng.sthr.c04e02spring.repositories.CommentRepository;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class CommentService {
 
     private final CommentRepository commentRepository;

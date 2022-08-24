@@ -1,9 +1,9 @@
 package learn.sprng.sthr.c04e02spring.services;
 
 import learn.sprng.sthr.c04e02spring.model.Comment;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class EmailCommentNotificationService implements CommentNotificationService {
     @Override
     public void sendComment(Comment comment) {
