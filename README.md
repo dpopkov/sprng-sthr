@@ -43,3 +43,8 @@ to provide a value through that parameter.
 ### Choosing from multiple beans in the Spring context
 * Project: [c03e10qualifier](c03e10qualifier)
 * Explicitly select a specific bean using the `@Qualifier` annotation: [Person.java](c03e10qualifier/src/main/java/learn/sprng/sthr/c03e10qualifier/Person.java)
+
+## 4 - The Spring context: Using abstractions
+
+### Using interfaces to define contracts
+* Project: [c04e01nospring](c04e01nospring)
