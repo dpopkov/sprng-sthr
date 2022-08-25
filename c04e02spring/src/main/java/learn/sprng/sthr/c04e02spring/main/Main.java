@@ -15,7 +15,9 @@ public class Main {
         comment.setAuthor("James");
         comment.setText("Test comment");
 
+        System.out.println("Before retrieving the CommentService");
         CommentService commentService = context.getBean(CommentService.class);
+        System.out.println("After retrieving the CommentService");
         commentService.publishComment(comment);
     }
 }
