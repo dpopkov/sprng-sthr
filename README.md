@@ -51,3 +51,13 @@ to provide a value through that parameter.
 
 ### Using dependency injection with abstractions
 * Project: [c04e02spring](c04e02spring)
+
+## 6 - Using Aspects with Spring AOP
+* Project: [c06e01aspects](c06e01aspects)
+
+1. Enable the aspect mechanism in your Spring app by annotating the configuration class with the `@EnableAspectJAutoProxy`
+annotation.
+2. Create a new class, and annotate it with the `@Aspect` annotation. Using either `@Bean` or stereotype annotations, 
+add a bean for this class in the Spring context.
+3. Define a method to implement the aspect logic, and use an advice annotation to tell Spring when and what to intercept.
+3. Implement the Aspect logic.
