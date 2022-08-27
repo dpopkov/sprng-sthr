@@ -61,3 +61,26 @@ annotation.
 add a bean for this class in the Spring context.
 3. Define a method to implement the aspect logic, and use an advice annotation to tell Spring when and what to intercept.
 3. Implement the Aspect logic.
+
+### Intercepting annotated methods
+* Project: [c06e04annotation](c06e04annotation)
+
+1. Define a custom annotation, and make it accessible at runtime.
+2. Use AspectJ pointcut expression for the aspect method to intercept the methods annotated with the custom annotation.
+```java
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface ToLog {
+}
+```
+```java
+@Aspect
+@Component
+public class LoggingAspect {
+
+    @Around("@annotation(learn.sprng.sthr.c06e04annotation.ToLog)")
+    public Object log(ProceedingJoinPoint joinPoint) {
+        // code
+    }
+}
+```
