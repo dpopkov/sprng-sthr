@@ -26,9 +26,15 @@ public class LoggingAspect {
         String methodName = joinPoint.getSignature().getName();
         Object[] arguments = joinPoint.getArgs();
         logger.info("Method " + methodName + " with parameters " + Arrays.toString(arguments) + " will execute");
-        Object returnedByMethod = joinPoint.proceed();
+
+        Comment substitution = new Comment();
+        substitution.setAuthor("Changed author");
+        substitution.setText("Changed text");
+        Object[] newArguments = {substitution};
+
+        Object returnedByMethod = joinPoint.proceed(newArguments);
         logger.info("Method executed and returned " + returnedByMethod);
-        return returnedByMethod;
+        return "FAILED";
     }
 
     public void setLogger(Logger logger) {

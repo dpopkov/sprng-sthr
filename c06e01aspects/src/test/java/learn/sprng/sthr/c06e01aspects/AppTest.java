@@ -61,7 +61,8 @@ class AppTest {
 
         then(aspectLogger).should(atLeastOnce()).info("Method publishCommentRet with parameters ["
                 + comment + "] will execute");
-        then(serviceLogger).should().info("Publishing comment: " + comment.getText());
+        final String changedText = "Changed text";
+        then(serviceLogger).should().info("Publishing comment: " + changedText);
         then(aspectLogger).should(atLeastOnce()).info("Method executed and returned SUCCESS");
     }
 }
