@@ -49,4 +49,19 @@ class AppTest {
         then(serviceLogger).should().info("Publishing comment: " + comment.getText());
         then(aspectLogger).should(atLeastOnce()).info("Method executed");
     }
+
+    @Test
+    @DisplayName("The aspect intercepts and alters the execution of the publishCommentRet() method.")
+    void testAspectInterceptsPublishCommentRetMethod() {
+        Comment comment = new Comment();
+        comment.setAuthor("Test author");
+        comment.setText("Test text");
+
+        commentService.publishCommentRet(comment);
+
+        then(aspectLogger).should(atLeastOnce()).info("Method publishCommentRet with parameters ["
+                + comment + "] will execute");
+        then(serviceLogger).should().info("Publishing comment: " + comment.getText());
+        then(aspectLogger).should(atLeastOnce()).info("Method executed and returned SUCCESS");
+    }
 }
