@@ -84,3 +84,15 @@ public class LoggingAspect {
     }
 }
 ```
+
+### The aspect execution chain
+* To control the order in which aspects execute use annotation `@Order`
+* Project: [c06e06order](c06e06order)
+```java
+@Component
+@Aspect
+@Order(100)
+public class SecurityAspect {
+    //...
+}
+```
