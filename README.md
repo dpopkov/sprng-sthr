@@ -101,3 +101,8 @@ public class SecurityAspect {
 
 ### Implementing a web app with Spring MVC
 * Project: [c07e01boot](c07e01boot)
+
+## 8 - Implementing web apps with Spring Boot and Spring MVC
+
+### Implementing web apps with a dynamic view using Thymeleaf template engine
+* Project: [c08e01mvc](c08e01mvc)
