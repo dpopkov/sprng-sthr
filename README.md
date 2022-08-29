@@ -106,3 +106,7 @@ public class SecurityAspect {
 
 ### Implementing web apps with a dynamic view using Thymeleaf template engine
 * Project: [c08e01mvc](c08e01mvc)
+
+### Getting data on the HTTP request
+* Request parameters: `@RequestParam`
+* Path variables: `@GetMapping("/home/{value}")`
