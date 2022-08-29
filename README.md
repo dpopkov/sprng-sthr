@@ -96,3 +96,8 @@ public class SecurityAspect {
     //...
 }
 ```
+
+## 7 - Understanding Spring Boot and Spring MVC
+
+### Implementing a web app with Spring MVC
+* Project: [c07e01boot](c07e01boot)
