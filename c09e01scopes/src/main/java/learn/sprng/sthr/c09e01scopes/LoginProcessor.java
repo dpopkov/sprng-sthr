@@ -10,9 +10,14 @@ import java.util.UUID;
 public class LoginProcessor {
 
     private final UUID uuid = UUID.randomUUID();
+    private final LoggedUserManagementService loggedUserManagementService;
 
     private String username;
     private String password;
+
+    public LoginProcessor(LoggedUserManagementService loggedUserManagementService) {
+        this.loggedUserManagementService = loggedUserManagementService;
+    }
 
     public String getUsername() {
         return username;
@@ -32,6 +37,12 @@ public class LoginProcessor {
 
     public boolean login() {
         System.out.println("LoginProcessor with UUID " + uuid);
-        return "james".equals(getUsername()) && "123".equals(getPassword());
+        boolean loggedIn = "james".equals(getUsername()) && "123".equals(getPassword());
+        if (loggedIn) {
+            loggedUserManagementService.setUsername(getUsername());
+        } else {
+            loggedUserManagementService.setUsername(null);
+        }
+        return loggedIn;
     }
 }

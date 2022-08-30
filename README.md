@@ -116,3 +116,6 @@ public class SecurityAspect {
 
 ### Request scope
 * Annotation `@RequestScope`
+
+### Session scope
+* Annotation `@SessionScope`

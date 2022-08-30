@@ -26,9 +26,7 @@ class LoginControllerUnitTest {
         given(loginProcessor.login()).willReturn(true);
 
         String view = loginController.login("username", "password", model);
-        assertEquals("login", view);
-
-        then(model).should().addAttribute("message", "You are now logged in.");
+        assertEquals("redirect:/main", view);
     }
 
     @Test
