@@ -110,3 +110,9 @@ public class SecurityAspect {
 ### Getting data on the HTTP request
 * Request parameters: `@RequestParam`
 * Path variables: `@GetMapping("/home/{value}")`
+
+## 9 - Using the Spring web scopes
+* Project: [c09e01scopes](c09e01scopes)
+
+### Request scope
+* Annotation `@RequestScope`
