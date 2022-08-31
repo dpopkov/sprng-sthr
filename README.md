@@ -119,3 +119,6 @@ public class SecurityAspect {
 
 ### Session scope
 * Annotation `@SessionScope`
+
+## 10 - Implementing REST services
+
