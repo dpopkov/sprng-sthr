@@ -136,3 +136,22 @@ return ResponseEntity
         .header("Capital", "Beijing")
         .body(country);
 ```
+
+### Managing exceptions at the endpoint level
+* Use class annotation `@RestControllerAdvice`
+* Use handler method annotation `@ExceptionHandler`
+* You can add a parameter to the advice’s exception handler method of the type of the handled exception.
+```java
+@RestControllerAdvice
+public class ExceptionControllerAdvice {
+
+    @ExceptionHandler(NotEnoughMoneyException.class)
+    public ResponseEntity<ErrorDetails> exceptionNotEnoughMoneyHandler() {
+        ErrorDetails details = new ErrorDetails();
+        details.setMessage("Not enough money to make the payment");
+        return ResponseEntity
+                .badRequest()
+                .body(details);
+    }
+}
+```
