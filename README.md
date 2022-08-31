@@ -121,4 +121,9 @@ public class SecurityAspect {
 * Annotation `@SessionScope`
 
 ## 10 - Implementing REST services
+* Project: [c10e01rest](c10e01rest)
+
+### Sending objects as a response body
+* Method annotation: `@ResponseBody`
+* Class annotation: `@RestController`
 
