@@ -127,3 +127,12 @@ public class SecurityAspect {
 * Method annotation: `@ResponseBody`
 * Class annotation: `@RestController`
 
+### Setting the response status and headers
+* Using `ResponseEntity`
+```java
+return ResponseEntity
+        .status(HttpStatus.ACCEPTED)
+        .header("Continent", "Asia")
+        .header("Capital", "Beijing")
+        .body(country);
+```
