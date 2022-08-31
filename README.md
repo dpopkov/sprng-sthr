@@ -155,3 +155,15 @@ public class ExceptionControllerAdvice {
     }
 }
 ```
+
+### Using a request body to get data from the client
+* Use parameter annotation `@RequestBody`
+```java
+public ResponseEntity<PaymentDetails> makePayment(@RequestBody PaymentDetails paymentDetails) {
+    PaymentDetails details = paymentService.processPayment(paymentDetails);
+    return ResponseEntity
+            .status(HttpStatus.ACCEPTED)
+            .body(details);
+}
+```
+* Use curl for testing: `curl -v -X POST localhost:8080/payment -d '{"amount":100}' -H "Content-Type: application/json"`
