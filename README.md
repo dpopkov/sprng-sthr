@@ -210,3 +210,6 @@ public class PaymentsController {
     }
 }
 ```
+
+### Calling REST endpoints using RestTemplate
+* Project: [c11e03resttemplate](c11e03resttemplate)
