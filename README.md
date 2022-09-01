@@ -167,3 +167,12 @@ public ResponseEntity<PaymentDetails> makePayment(@RequestBody PaymentDetails pa
 }
 ```
 * Use curl for testing: `curl -v -X POST localhost:8080/payment -d '{"amount":100}' -H "Content-Type: application/json"`
+
+## 11 - Consuming REST endpoints
+
+* REST service project that exposes a payment service to consume: [c11e01payments](c11e01payments)
+
+### Calling REST endpoints using Spring Cloud OpenFeign
+To implement the REST endpoint call we need to define an interface and use annotations to instruct OpenFeign
+on how to implement this interface.
+* Project: [c11e02openfeign](c11e02openfeign)
