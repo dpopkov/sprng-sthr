@@ -213,3 +213,19 @@ public class PaymentsController {
 
 ### Calling REST endpoints using RestTemplate
 * Project: [c11e03resttemplate](c11e03resttemplate)
+* Define the HTTP headers by creating and configuring an `HttpHeaders` instance.
+* Create an `HttpEntity` instance that represents the request data (headers and body).
+* Send the HTTP call using the `exchange()` method and get the HTTP response.
+```java
+public Payment createPayment(Payment payment) {
+    String uri = paymentsServiceUrl + "/payment";
+    HttpHeaders headers = new HttpHeaders();
+    headers.add("requestId", UUID.randomUUID().toString());
+    HttpEntity<Payment> httpEntity = new HttpEntity<>(payment, headers);
+    ResponseEntity<Payment> response = restTemplate.exchange(uri,
+            HttpMethod.POST,
+            httpEntity,
+            Payment.class);
+    return response.getBody();
+}
+```
