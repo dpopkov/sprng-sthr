@@ -176,3 +176,37 @@ public ResponseEntity<PaymentDetails> makePayment(@RequestBody PaymentDetails pa
 To implement the REST endpoint call we need to define an interface and use annotations to instruct OpenFeign
 on how to implement this interface.
 * Project: [c11e02openfeign](c11e02openfeign)
+* Create the proxy interface using the same annotations that expose REST endpoints (PostManning, RequestHeader, RequestBody):
+```java
+@FeignClient(name = "paymentsProxy",
+             url = "${name.service.url}")
+public interface PaymentsProxy {
+    @PostMapping("/payment")
+    Payment createPayment(
+            @RequestHeader String requestId,
+            @RequestBody Payment payment
+    );
+}
+```
+* Use the `@EnableFeignClients` annotation on a configuration class to enable the OpenFeign functionality:
+```java
+@Configuration
+@EnableFeignClients(basePackages = "learn.sprng.sthr.c11e02openfeign.proxy")
+public class ProjectConfig {
+}
+```
+* Inject and use the OpenFeign client through the interface:
+```java
+@RestController
+public class PaymentsController {
+    private final PaymentsProxy paymentsProxy;
+    public PaymentsController(PaymentsProxy paymentsProxy) {
+        this.paymentsProxy = paymentsProxy;
+    }
+    @PostMapping("/payment")
+    public Payment createPayment(@RequestBody Payment payment) {
+        String requestId = UUID.randomUUID().toString();
+        return paymentsProxy.createPayment(requestId, payment);
+    }
+}
+```
