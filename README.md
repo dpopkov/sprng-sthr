@@ -229,3 +229,8 @@ public Payment createPayment(Payment payment) {
     return response.getBody();
 }
 ```
+
+## 12 - Using data sources in Spring apps
+
+### Using JdbcTemplate to work with persisted data
+* Project: [c12e01jdbctemplate](c12e01jdbctemplate)
