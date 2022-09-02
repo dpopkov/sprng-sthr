@@ -234,3 +234,25 @@ public Payment createPayment(Payment payment) {
 
 ### Using JdbcTemplate to work with persisted data
 * Project: [c12e01jdbctemplate](c12e01jdbctemplate)
+* Use `update()` method for data mutation (insert, update, delete):
+```java
+public void save(Purchase purchase) {
+    final String sql = "INSERT INTO purchase (product, price) VALUES (?, ?)";
+    jdbcTemplate.update(sql,
+            purchase.getProduct(),
+            purchase.getPrice());
+}
+```
+* Use `query()` method for select:
+```java
+public List<Purchase> findAll() {
+    final RowMapper<Purchase> rowMapper = (resultSet, i) -> {
+        Purchase p = new Purchase();
+        p.setId(resultSet.getInt("id"));
+        p.setProduct(resultSet.getString("product"));
+        p.setPrice(resultSet.getBigDecimal("price"));
+        return p;
+    };
+    return jdbcTemplate.query("SELECT id, product, price FROM purchase", rowMapper);
+}
+```
