@@ -300,3 +300,4 @@ public class ProjectConfig {
 
 ## 13 - Using transactions in Spring apps
 * Project: [c13e01transactional](c13e01transactional)
+* Use method and class annotation `@Transactional` at use case (service) level.
