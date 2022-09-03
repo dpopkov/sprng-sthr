@@ -256,3 +256,44 @@ public List<Purchase> findAll() {
     return jdbcTemplate.query("SELECT id, product, price FROM purchase", rowMapper);
 }
 ```
+
+### Define the data source in the application properties file
+* Configure Datasource: `spring.datasource.url=jdbc:postgresql://localhost:5432/postgres`
+* Use environment variables DB_USERNAME and DB_PASSWORD:
+```properties
+spring.datasource.username=${DB_USERNAME}
+spring.datasource.password=${DB_PASSWORD}
+```
+* Set initialization mode to "always" to run "schema.sql": `spring.sql.init.mode=always`
+
+### Using a custom DataSource bean
+
+Scenarios in which you need to define the bean:
+* You need to use a specific DataSource implementation based on a condition you can only get at runtime.
+* Your app connects to more than one database, so you have to create multiple data sources and distinguish them using qualifiers.
+* You have to configure specific parameters of the DataSource object in certain conditions your app has only at runtime.
+For example, depending on the environment where you start the app, you want to have more or fewer connections 
+in the connection pool for performance optimization.
+* Your app uses Spring framework but not Spring Boot.
+
+```java
+@Configuration
+public class ProjectConfig {
+    @Value("${custom.datasource.url}")
+    private String datasourceUrl;
+    @Value("${custom.datasource.username}")
+    private String datasourceUsername;
+    @Value("${custom.datasource.password}")
+    private String datasourcePassword;
+
+    @Bean
+    public DataSource dataSource() {
+        HikariDataSource dataSource = new HikariDataSource();
+        dataSource.setJdbcUrl(datasourceUrl);
+        dataSource.setUsername(datasourceUsername);
+        dataSource.setPassword(datasourcePassword);
+        dataSource.setConnectionTimeout(1000);
+        return dataSource;
+    }
+}
+``` 
