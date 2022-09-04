@@ -306,3 +306,16 @@ public class ProjectConfig {
 
 ### Using Spring Data JDBC
 * Project: [c14e01springdatajdbc](c14e01springdatajdbc)
+* Add dependency for `<artifactId>spring-boot-starter-data-jdbc</artifactId>`
+* Use for extension `CrudRepository` or `PagingAndSortingRepository`
+* Spring Data provides implementations
+* Use query method relying on Spring Data translating
+* Use SQL queries:
+```java
+@Query("SELECT * FROM account WHERE name = :name")
+    List<Account> findByName(String name);
+
+@Modifying
+    @Query("UPDATE account SET amount = :amount WHERE id = :id")
+    void changeAmount(Integer id, BigDecimal amount);
+```
