@@ -301,3 +301,8 @@ public class ProjectConfig {
 ## 13 - Using transactions in Spring apps
 * Project: [c13e01transactional](c13e01transactional)
 * Use method and class annotation `@Transactional` at use case (service) level.
+
+## 14 - Implementing data persistence with Spring Data
+
+### Using Spring Data JDBC
+* Project: [c14e01springdatajdbc](c14e01springdatajdbc)
