@@ -3,6 +3,43 @@ Repo for learning Spring projects.
 
 [Spring Reference](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html)
 
+## Contents
+* [2 - The Spring context - defining beans](#2---the-spring-context---defining-beans)
+    * [Using the @Bean annotation to add beans into the Spring context](#using-the-bean-annotation-to-add-beans-into-the-spring-context)
+    * [Using stereotype annotations to add beans to the Spring context](#using-stereotype-annotations-to-add-beans-to-the-spring-context)
+    * [Programmatically adding beans to the Spring context](#programmatically-adding-beans-to-the-spring-context)
+* [3 - The Spring context: Wiring beans](#3---the-spring-context-wiring-beans)
+    * [Wiring the beans using a direct method call between the @Bean methods](#wiring-the-beans-using-a-direct-method-call-between-the-bean-methods)
+    * [Wiring the beans using the @Bean annotated method's parameters](#wiring-the-beans-using-the-bean-annotated-methods-parameters)
+    * [Using @Autowired to inject beans through constructor](#using-autowired-to-inject-beans-through-constructor)
+    * [Choosing from multiple beans in the Spring context](#choosing-from-multiple-beans-in-the-spring-context)
+* [4 - The Spring context: Using abstractions](#4---the-spring-context-using-abstractions)
+    * [Using interfaces to define contracts](#using-interfaces-to-define-contracts)
+    * [Using dependency injection with abstractions](#using-dependency-injection-with-abstractions)
+* [6 - Using Aspects with Spring AOP](#6---using-aspects-with-spring-aop)
+    * [Intercepting annotated methods](#intercepting-annotated-methods)
+    * [The aspect execution chain](#the-aspect-execution-chain)
+* [7 - Understanding Spring Boot and Spring MVC](#7---understanding-spring-boot-and-spring-mvc)
+    * [Implementing a web app with Spring MVC](#implementing-a-web-app-with-spring-mvc)
+* [8 - Implementing web apps with Spring Boot and Spring MVC](#8---implementing-web-apps-with-spring-boot-and-spring-mvc)
+    * [Implementing web apps with a dynamic view using Thymeleaf template engine](#implementing-web-apps-with-a-dynamic-view-using-thymeleaf-template-engine)
+    * [Getting data on the HTTP request](#getting-data-on-the-http-request)
+* [9 - Using the Spring web scopes](#9---using-the-spring-web-scopes)
+* [10 - Implementing REST services](#10---implementing-rest-services)
+    * [Sending objects as a response body](#sending-objects-as-a-response-body)
+    * [Setting the response status and headers](#setting-the-response-status-and-headers)
+    * [Managing exceptions at the endpoint level](#managing-exceptions-at-the-endpoint-level)
+    * [Using a request body to get data from the client](#using-a-request-body-to-get-data-from-the-client)
+* [11 - Consuming REST endpoints](#11---consuming-rest-endpoints)
+    * [Calling REST endpoints using Spring Cloud OpenFeign](#calling-rest-endpoints-using-spring-cloud-openfeign)
+    * [Calling REST endpoints using RestTemplate](#calling-rest-endpoints-using-resttemplate)
+* [12 - Using data sources in Spring apps](#12---using-data-sources-in-spring-apps)
+    * [Using JdbcTemplate to work with persisted data](#using-jdbctemplate-to-work-with-persisted-data)
+    * [Define the data source in the application properties file](#define-the-data-source-in-the-application-properties-file)
+    * [Using a custom DataSource bean](#using-a-custom-datasource-bean)
+* [13 - Using transactions in Spring apps](#13---using-transactions-in-spring-apps)
+* [14 - Implementing data persistence with Spring Data](#14---implementing-data-persistence-with-spring-data)
+
 ## 2 - The Spring context - defining beans
 * Project: [c02e01beans](c02e01beans)
 
@@ -22,6 +59,8 @@ Repo for learning Spring projects.
 
 1. Create the instance you want to add to the Spring context.
 2. Call the `context.registerBean()` method to add the instance to the Spring context - [Main](c02e08register/src/main/java/learn/sprng/sthr/c02e08register/Main.java)
+
+[TOC](#contents)
 
 ## 3 - The Spring context: Wiring beans
 * Project: [c03e01wiring](c03e01wiring)
@@ -44,6 +83,8 @@ to provide a value through that parameter.
 * Project: [c03e10qualifier](c03e10qualifier)
 * Explicitly select a specific bean using the `@Qualifier` annotation: [Person.java](c03e10qualifier/src/main/java/learn/sprng/sthr/c03e10qualifier/Person.java)
 
+[TOC](#contents)
+
 ## 4 - The Spring context: Using abstractions
 
 ### Using interfaces to define contracts
@@ -51,6 +92,8 @@ to provide a value through that parameter.
 
 ### Using dependency injection with abstractions
 * Project: [c04e02spring](c04e02spring)
+
+[TOC](#contents)
 
 ## 6 - Using Aspects with Spring AOP
 * Project: [c06e01aspects](c06e01aspects)
@@ -97,6 +140,8 @@ public class SecurityAspect {
 }
 ```
 
+[TOC](#contents)
+
 ## 7 - Understanding Spring Boot and Spring MVC
 
 ### Implementing a web app with Spring MVC
@@ -111,6 +156,8 @@ public class SecurityAspect {
 * Request parameters: `@RequestParam`
 * Path variables: `@GetMapping("/home/{value}")`
 
+[TOC](#contents)
+
 ## 9 - Using the Spring web scopes
 * Project: [c09e01scopes](c09e01scopes)
 
@@ -119,6 +166,8 @@ public class SecurityAspect {
 
 ### Session scope
 * Annotation `@SessionScope`
+
+[TOC](#contents)
 
 ## 10 - Implementing REST services
 * Project: [c10e01rest](c10e01rest)
@@ -156,6 +205,8 @@ public class ExceptionControllerAdvice {
 }
 ```
 
+[TOC](#contents)
+
 ### Using a request body to get data from the client
 * Use parameter annotation `@RequestBody`
 ```java
@@ -167,6 +218,8 @@ public ResponseEntity<PaymentDetails> makePayment(@RequestBody PaymentDetails pa
 }
 ```
 * Use curl for testing: `curl -v -X POST localhost:8080/payment -d '{"amount":100}' -H "Content-Type: application/json"`
+
+[TOC](#contents)
 
 ## 11 - Consuming REST endpoints
 
@@ -211,6 +264,8 @@ public class PaymentsController {
 }
 ```
 
+[TOC](#contents)
+
 ### Calling REST endpoints using RestTemplate
 * Project: [c11e03resttemplate](c11e03resttemplate)
 * Define the HTTP headers by creating and configuring an `HttpHeaders` instance.
@@ -229,6 +284,8 @@ public Payment createPayment(Payment payment) {
     return response.getBody();
 }
 ```
+
+[TOC](#contents)
 
 ## 12 - Using data sources in Spring apps
 
@@ -256,6 +313,8 @@ public List<Purchase> findAll() {
     return jdbcTemplate.query("SELECT id, product, price FROM purchase", rowMapper);
 }
 ```
+
+[TOC](#contents)
 
 ### Define the data source in the application properties file
 * Configure Datasource: `spring.datasource.url=jdbc:postgresql://localhost:5432/postgres`
@@ -298,6 +357,8 @@ public class ProjectConfig {
 }
 ``` 
 
+[TOC](#contents)
+
 ## 13 - Using transactions in Spring apps
 * Project: [c13e01transactional](c13e01transactional)
 * Use method and class annotation `@Transactional` at use case (service) level.
@@ -313,9 +374,12 @@ public class ProjectConfig {
 * Use SQL queries:
 ```java
 @Query("SELECT * FROM account WHERE name = :name")
-    List<Account> findByName(String name);
-
-@Modifying
-    @Query("UPDATE account SET amount = :amount WHERE id = :id")
-    void changeAmount(Integer id, BigDecimal amount);
+List<Account> findByName(String name);
 ```
+```java
+@Modifying
+@Query("UPDATE account SET amount = :amount WHERE id = :id")
+void changeAmount(Integer id, BigDecimal amount);
+```
+
+[TOC](#contents)
